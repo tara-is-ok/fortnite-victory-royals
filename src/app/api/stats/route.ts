@@ -1,11 +1,11 @@
 import axios from 'axios'
 import { NextResponse } from 'next/server'
 
-import { apiKey, baseUrl } from '@/utils/const'
+import { apiBaseUrl, apiKey } from '@/utils/const'
 
 export const GET = async () => {
   const result = await axios
-    .get(`${baseUrl}/stats/br/v2`, {
+    .get(`${apiBaseUrl}/stats/br/v2`, {
       params: { name: 'tensai_victory', accountType: 'psn' },
       headers: { authorization: apiKey },
     })

@@ -4,4 +4,11 @@ export const navigations = [
 ]
 
 export const apiKey = process.env.NEXT_PUBLIC_API_KEY
-export const baseUrl = process.env.NEXT_PUBLIC_API_BASE_URL
+//中間API
+export const apiBaseUrl = process.env.NEXT_PUBLIC_API_BASE_URL
+
+/**
+ * @deprecated
+ * endpoint
+ */
+export const baseUrl = 'http://localhost:3000'
