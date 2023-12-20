@@ -5,6 +5,7 @@ import { Inter } from 'next/font/google'
 import { ReactNode } from 'react'
 
 import { Header } from '@/components'
+import { Providers } from '@/components/providers/providers'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -18,7 +19,9 @@ const RootLayout = ({ children }: { children: ReactNode }) => {
     <html lang="en">
       <body>
         <Header />
-        <div className={inter.className}>{children}</div>
+        <div className={inter.className}>
+          <Providers>{children}</Providers>
+        </div>
       </body>
     </html>
   )
