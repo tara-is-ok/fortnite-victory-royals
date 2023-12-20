@@ -2,14 +2,14 @@
 
 import { FC } from 'react'
 
-const Stats: FC = () => {
+const Wins: FC = () => {
   return (
     <div className="bg-white">
       <div className="relative isolate px-6 pt-14 lg:px-8">
-        <p>your stats</p>
+        <p>Victory royals</p>
       </div>
     </div>
   )
 }
 
-export default Stats
+export default Wins
