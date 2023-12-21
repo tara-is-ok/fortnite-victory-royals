@@ -8,7 +8,7 @@ const Home: FC = () => {
         <div className="mx-auto max-w-2xl py-72">
           <div className="text-center ">
             <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">
-              Fortnite Stats
+              🧊Fortnite Stats🫧
             </h1>
             <p className="text-2xl font-bold tracking-tight text-gray-900 sm:text-4xl mt-5">
               🪼😶‍🌫️💦💦🧩💦💦🌱💧
