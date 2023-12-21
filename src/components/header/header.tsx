@@ -9,9 +9,9 @@ import { NavDialog } from './fragments/dialog'
 export const Header = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   return (
-    <header className="absolute inset-x-0 top-0 z-50">
+    <header className="absolute inset-x-0 top-0 z-50 shadow-md">
       <nav
-        className="flex items-center justify-between p-6 lg:px-8"
+        className="flex items-center justify-between px-5 py-3 lg:px-8"
         aria-label="Global"
       >
         <div className="flex lg:flex-1">
