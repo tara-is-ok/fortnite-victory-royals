@@ -14,11 +14,8 @@ export type StatsParams = {
 
 export const useStats = (params?: StatsParams) => {
   const queryParams = new URLSearchParams(params).toString()
-  const { data, error, isLoading, mutate } = useSWR(
+  const { data, error, isLoading } = useSWR(
     queryParams ? `${baseUrl}/api/stats?${queryParams}` : null,
-    // {
-    //   onSuccess: (data) => data.data,
-    // },
   )
-  return { data, error, mutate, isLoading }
+  return { data: data?.data, error, isLoading }
 }
