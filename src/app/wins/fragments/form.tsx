@@ -8,9 +8,7 @@ type Props = {
   onSubmit: (valus: StatsParams) => void
 }
 export const Form: FC<Props> = ({ isLoading, onSubmit }) => {
-  const { watch, register, handleSubmit } = useForm<StatsParams>({
-    defaultValues: { name: 'tensai_victory', accountType: 'psn' },
-  })
+  const { watch, register, handleSubmit } = useForm<StatsParams>()
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="md:flex gap-x-5">
       <div className="flex-1">

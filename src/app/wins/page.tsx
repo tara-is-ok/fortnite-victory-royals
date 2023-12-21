@@ -6,6 +6,7 @@ import { Spinner } from '@/components'
 import { WinCard } from '@/components/winCard/winCard'
 import { Winners } from '@/components/winners/winners'
 import { StatsParams, useStats } from '@/hooks'
+import { StatsResponse } from '@/types/api/stats'
 
 import { ErrorToast } from './fragments/errorToast'
 import { Form } from './fragments/form'
@@ -34,12 +35,26 @@ const Wins: FC = () => {
             </div>
           ) : (
             <>
-              {data && (
+              {data ? (
                 <>
                   <div className="absolute z-10">
                     <WinCard data={data} />
                   </div>
                   <Winners value={Number(data?.stats.all.overall.wins)} />
+                </>
+              ) : (
+                <>
+                  <div className="absolute z-10">
+                    <WinCard
+                      data={
+                        {
+                          account: { name: 'Your username?(Sample)' },
+                          stats: { all: { overall: { wins: 5 } } },
+                        } as StatsResponse['data']
+                      }
+                    />
+                  </div>
+                  <Winners value={5} />
                 </>
               )}
             </>
