@@ -1,5 +1,6 @@
 import useSWR from 'swr'
 
+import { StatsError, StatsResponse } from '@/types/api/stats'
 import { baseUrl } from '@/utils/const'
 
 type AccountType = 'epic' | 'psn' | 'xbl'
@@ -14,7 +15,7 @@ export type StatsParams = {
 
 export const useStats = (params?: StatsParams) => {
   const queryParams = new URLSearchParams(params).toString()
-  const { data, error, isLoading } = useSWR(
+  const { data, error, isLoading } = useSWR<StatsResponse, StatsError>(
     queryParams ? `${baseUrl}/api/stats?${queryParams}` : null,
   )
   return { data: data?.data, error, isLoading }
