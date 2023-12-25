@@ -2,9 +2,7 @@
 
 import { FC, useState } from 'react'
 
-import { Spinner } from '@/components'
-import { WinCard } from '@/components/winCard/winCard'
-import { Winners } from '@/components/winners/winners'
+import { Gifs, Spinner, WinCard } from '@/components'
 import { StatsParams, useStats } from '@/hooks'
 import { StatsResponse } from '@/types/api/stats'
 
@@ -40,7 +38,7 @@ const Wins: FC = () => {
                   <div className="absolute z-10">
                     <WinCard data={data} />
                   </div>
-                  <Winners value={Number(data?.stats.all.overall.wins)} />
+                  <Gifs value={Number(data?.stats.all.overall.wins)} />
                 </>
               ) : (
                 <>
@@ -54,7 +52,7 @@ const Wins: FC = () => {
                       }
                     />
                   </div>
-                  <Winners value={5} />
+                  <Gifs value={5} />
                 </>
               )}
             </>
