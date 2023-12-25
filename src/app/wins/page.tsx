@@ -15,12 +15,12 @@ const Wins: FC = () => {
   const router = useRouter()
   const pathname = usePathname()
   const searchParams = useSearchParams()
-  const name = searchParams.get('name') as StatsParams['name']
-  const accountType = searchParams.get(
-    'accountType',
-  ) as StatsParams['accountType']
-  const timeWindow = searchParams.get('timeWindow') as StatsParams['timeWindow']
-  const defaultValues: StatsParams = { name, accountType, timeWindow }
+  const name = (searchParams.get('name') ?? undefined) as StatsParams['name']
+  const accountType = (searchParams.get('accountType') ??
+    undefined) as StatsParams['accountType']
+  const timeWindow = (searchParams.get('timeWindow') ??
+    undefined) as StatsParams['timeWindow']
+  const defaultValues = { name, accountType, timeWindow }
   const [params, setParams] = useState<StatsParams>(defaultValues)
   const { data, error, isLoading } = useStats(params)
 
@@ -48,25 +48,27 @@ const Wins: FC = () => {
             <>
               {data ? (
                 <>
-                  <div className="absolute z-10">
+                  <div className="absolute m-auto w-10/12 sm:w-auto z-10">
                     <WinCard data={data} />
                   </div>
                   <Gifs value={Number(data?.stats.all.overall.wins)} />
                 </>
               ) : (
-                <>
-                  <div className="absolute z-10">
-                    <WinCard
-                      data={
-                        {
-                          account: { name: 'Your username?(Sample)' },
-                          stats: { all: { overall: { wins: 5 } } },
-                        } as StatsResponse['data']
-                      }
-                    />
-                  </div>
-                  <Gifs value={5} />
-                </>
+                !error && (
+                  <>
+                    <div className="absolute z-10">
+                      <WinCard
+                        data={
+                          {
+                            account: { name: 'Your username?(Sample)' },
+                            stats: { all: { overall: { wins: 5 } } },
+                          } as StatsResponse['data']
+                        }
+                      />
+                    </div>
+                    <Gifs value={5} />
+                  </>
+                )
               )}
             </>
           )}

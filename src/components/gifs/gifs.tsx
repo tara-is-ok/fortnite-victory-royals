@@ -1,5 +1,6 @@
 import Image from 'next/image'
 import { FC } from 'react'
+import { isMobile } from 'react-device-detect'
 
 import { gifs } from '@/utils/const'
 
@@ -7,10 +8,9 @@ type Props = {
   value: number
 }
 
-const imageMinW = 50
-const imageMaxW = 80
-const imageMinH = 100
-const imageMaxH = 120
+const imageSize = isMobile
+  ? { minW: 25, maxW: 40, minH: 50, maxH: 60 }
+  : { minW: 50, maxW: 80, minH: 100, maxH: 120 }
 const offsetX = 90
 const offsetY = 60
 
@@ -23,6 +23,7 @@ export const Gifs: FC<Props> = ({ value }) => {
     <div className="relative h-full">
       {winsArr.map((src, i) => {
         const { x, y } = getRandomPosition()
+        const { maxW, minW, maxH, minH } = imageSize
         return (
           <div
             className="col-span-1 sm:col-span-1 md:col-span-1"
@@ -32,8 +33,8 @@ export const Gifs: FC<Props> = ({ value }) => {
             <Image
               src={src}
               alt="my gif"
-              height={getRandomNumber(imageMaxH, imageMinH)}
-              width={getRandomNumber(imageMaxW, imageMinW)}
+              height={getRandomNumber(maxH, minH)}
+              width={getRandomNumber(maxW, minW)}
             />
           </div>
         )

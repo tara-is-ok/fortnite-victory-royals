@@ -7,14 +7,16 @@ type AccountType = 'epic' | 'psn' | 'xbl'
 type TimeWindow = 'season' | 'lifetime'
 type Image = 'all' | 'keyboardMouse' | 'gamepad' | 'touch' | 'none'
 export type StatsParams = {
-  name: string
+  name?: string
   accountType?: AccountType
   timeWindow?: TimeWindow
   image?: Image
 }
 
-export const useStats = (params?: StatsParams) => {
-  const queryParams = new URLSearchParams(params).toString()
+export const useStats = (params: StatsParams) => {
+  const queryParams = params?.name
+    ? new URLSearchParams(params).toString()
+    : undefined
   const { data, error, isLoading } = useSWR<StatsResponse, StatsError>(
     queryParams ? `${baseUrl}/api/stats?${queryParams}` : null,
   )
