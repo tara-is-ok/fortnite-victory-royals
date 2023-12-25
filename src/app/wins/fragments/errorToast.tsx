@@ -1,4 +1,4 @@
-import { XMarkIcon } from '@heroicons/react/24/outline'
+import { ExclamationCircleIcon, XMarkIcon } from '@heroicons/react/24/outline'
 import { BAD_REQUEST, FORBIDDEN, NOT_FOUND } from 'http-status'
 import { FC, useState } from 'react'
 
@@ -13,8 +13,8 @@ export const ErrorToast: FC<Props> = ({ error }) => {
   return (
     <div className="w-full flex items-center justify-between bg-white bg-opacity-25 shadow-lg rounded-lg p-3">
       <div className="flex items-center">
-        <div className="inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-red-100 text-red-500 dark:bg-red-800 dark:text-red-200">
-          <XMarkIcon className="h-5 w-5" />
+        <div className="shrink-0 items-center justify-center rounded-lg  text-red-500 dark:bg-red-800 dark:text-red-200">
+          <ExclamationCircleIcon className="h-5 w-5" />
         </div>
         <div className="ml-3 text-sm font-normal">{toErrorMessage(error)}</div>
       </div>
