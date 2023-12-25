@@ -22,7 +22,6 @@ export const ModeTabs: FC<Props> = ({ data }) => {
   const solo = data?.stats.all.solo
   const duo = data?.stats.all.duo
   const squad = data?.stats.all.squad
-  console.log(squad)
   return (
     <Tabs value="solo">
       <TabsHeader
