@@ -2,11 +2,13 @@
 
 import { FC } from 'react'
 
+import { ModeTabs } from './fragments/modeTabs'
+
 const Stats: FC = () => {
   return (
-    <div>
-      <div className="relative isolate px-6 pt-14 lg:px-8">
-        <p>work in progress !!</p>
+    <div className="h-screen">
+      <div className="px-6 pt-20 lg:px-8  grid gap-y-5">
+        <ModeTabs />
       </div>
     </div>
   )
