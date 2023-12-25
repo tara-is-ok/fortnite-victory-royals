@@ -21,7 +21,6 @@ const Stats: FC = () => {
   const defaultValues = { name, accountType, timeWindow }
   const [params, setParams] = useState<StatsParams>(defaultValues)
   const { data, error, isLoading } = useStats(params)
-  console.log(data)
 
   const onSubmit = async (values: StatsParams) => {
     const queryParams = paramsSerializer(values)
@@ -35,7 +34,9 @@ const Stats: FC = () => {
       isLoading={isLoading}
       onSubmit={onSubmit}
     >
-      <ModeTabs />
+      <div className="mt-5">
+        <ModeTabs data={data} />
+      </div>
     </StatsLayout>
   )
 }
