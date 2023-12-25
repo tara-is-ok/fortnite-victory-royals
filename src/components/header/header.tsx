@@ -2,7 +2,7 @@
 import { Bars3Icon } from '@heroicons/react/24/outline'
 import { useState } from 'react'
 
-import { navigations } from '@/utils/const'
+import { navigations } from '@/utils/navigation'
 
 import { NavDialog } from './fragments/dialog'
 

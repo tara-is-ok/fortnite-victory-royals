@@ -3,7 +3,7 @@ import { Dialog } from '@headlessui/react'
 import { XMarkIcon } from '@heroicons/react/24/outline'
 import { FC } from 'react'
 
-import { navigations } from '@/utils/const'
+import { navigations } from '@/utils/navigation'
 
 type Props = {
   open: boolean

@@ -4,11 +4,15 @@ import { useForm } from 'react-hook-form'
 import { StatsParams } from '@/hooks'
 
 type Props = {
+  params: StatsParams
   isLoading: boolean
   onSubmit: (valus: StatsParams) => void
 }
-export const Form: FC<Props> = ({ isLoading, onSubmit }) => {
-  const { watch, register, handleSubmit } = useForm<StatsParams>()
+export const Form: FC<Props> = ({ params, isLoading, onSubmit }) => {
+  const { watch, register, handleSubmit } = useForm<StatsParams>({
+    defaultValues: params,
+  })
+
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="md:flex gap-x-5">
       <div className="flex-1">
