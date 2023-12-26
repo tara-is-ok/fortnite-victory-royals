@@ -45,7 +45,7 @@ export const StatsLayout: FC<Props> = ({ children, error, isLoading }) => {
             </div>
           )}
           {children}
-          <div className="flex absolute bottom-3 right-1/2">
+          <div className="flex absolute bottom-3 right-3">
             <IconButton placeholder="" variant="text" onClick={openDrawer}>
               <UserCircleIcon className="w-10 h-10 text-gray-700" />
             </IconButton>
