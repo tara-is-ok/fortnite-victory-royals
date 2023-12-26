@@ -1,6 +1,6 @@
-import { ExclamationCircleIcon, XMarkIcon } from '@heroicons/react/24/outline'
+import { ExclamationCircleIcon } from '@heroicons/react/24/outline'
 import { BAD_REQUEST, FORBIDDEN, NOT_FOUND } from 'http-status'
-import { FC, useState } from 'react'
+import { FC } from 'react'
 
 import { StatsError } from '@/types/api/stats'
 
@@ -8,22 +8,16 @@ type Props = {
   error: StatsError
 }
 export const ErrorToast: FC<Props> = ({ error }) => {
-  const [open, setOpen] = useState(true)
-  if (!open) return <></>
   return (
-    <div className="w-full flex items-center justify-between bg-white bg-opacity-25 shadow-lg rounded-lg p-3">
-      <div className="flex items-center">
+    <div className="flex w-fit rounded-lg">
+      <div className="flex items-start">
         <div className="shrink-0 items-center justify-center rounded-lg  text-red-500 dark:bg-red-800 dark:text-red-200">
           <ExclamationCircleIcon className="h-5 w-5" />
         </div>
-        <div className="ml-3 text-sm font-normal text-gray-700">
+        <div className="ml-2 text-sm font-normal text-red-400">
           {toErrorMessage(error)}
         </div>
       </div>
-      <XMarkIcon
-        className="h-10 w-10 sm:h-5 sm:w-5 cursor-pointer"
-        onClick={() => setOpen(false)}
-      />
     </div>
   )
 }
