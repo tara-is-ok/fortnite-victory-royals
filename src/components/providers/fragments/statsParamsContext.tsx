@@ -2,17 +2,9 @@
 import { useSearchParams } from 'next/navigation'
 import { createContext, FC, ReactNode, useReducer } from 'react'
 
-import { StatsParamsDispatchContext, statsParamsReducer } from '.'
+import { StatsParams } from '@/types/stats'
 
-type AccountType = 'epic' | 'psn' | 'xbl'
-type TimeWindow = 'season' | 'lifetime'
-type Image = 'all' | 'keyboardMouse' | 'gamepad' | 'touch' | 'none'
-export type StatsParams = {
-  name?: string
-  accountType?: AccountType
-  timeWindow?: TimeWindow
-  image?: Image
-}
+import { StatsParamsDispatchContext, statsParamsReducer } from '.'
 
 // eslint-disable-next-line @typescript-eslint/naming-convention -- allow to use this as react component
 export const StatsParamsContext = createContext<StatsParams>({})

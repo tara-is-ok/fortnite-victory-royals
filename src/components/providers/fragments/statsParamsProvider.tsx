@@ -1,9 +1,8 @@
 'use client'
 import { createContext, Dispatch } from 'react'
 
+import { StatsParams } from '@/types/stats'
 import { purgeFalsyValues } from '@/utils/object'
-
-import { StatsParams } from '.'
 
 type Action = { type: 'update'; payload: StatsParams }
 

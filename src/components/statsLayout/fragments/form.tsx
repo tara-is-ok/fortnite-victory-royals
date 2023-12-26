@@ -1,7 +1,7 @@
 import { FC } from 'react'
 import { useForm } from 'react-hook-form'
 
-import { StatsParams } from '@/components/providers/fragments'
+import { StatsParams } from '@/types/stats'
 
 type Props = {
   params: StatsParams

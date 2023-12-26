@@ -4,9 +4,9 @@ import { FC, ReactNode } from 'react'
 
 import { useStatsParams } from '@/hooks'
 import { StatsError } from '@/types/api/stats'
+import { StatsParams } from '@/types/stats'
 import { paramsSerializer } from '@/utils/navigation'
 
-import { StatsParams } from '../providers/fragments'
 import { ErrorToast } from './fragments/errorToast'
 import { Form } from './fragments/form'
 
