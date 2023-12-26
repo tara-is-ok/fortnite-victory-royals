@@ -11,7 +11,7 @@ export const WinCard: FC<Props> = ({ data }) => {
   return (
     <>
       <div className="max-w-sm w-full">
-        <div className="border border-indigo-600 border-opacity-50 shadow-lg  bg-white bg-opacity-60 rounded p-4 flex flex-col">
+        <div className="border border-indigo-600 border-opacity-50 shadow-lg  bg-white bg-opacity-90 rounded p-4 flex flex-col">
           <div className=" flex justify-between text-gray-900 font-bold text-xl mb-2">
             <h2>{data.account.name}</h2>
           </div>
