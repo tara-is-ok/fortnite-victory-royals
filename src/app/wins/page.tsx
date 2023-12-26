@@ -2,9 +2,10 @@
 
 import { FC } from 'react'
 
-import { Gifs, Spinner, StatsLayout, WinCard } from '@/components'
+import { Gifs, Spinner, StatsEmpty, StatsLayout } from '@/components'
 import { useStats } from '@/hooks'
-import { StatsResponse } from '@/types/api/stats'
+
+import { WinCard } from './fragments/winCard'
 
 const Wins: FC = () => {
   const { data, error, isLoading } = useStats()
@@ -26,21 +27,7 @@ const Wins: FC = () => {
                 <Gifs value={Number(data?.stats.all.overall.wins)} />
               </>
             ) : (
-              !error && (
-                <>
-                  <div className="absolute z-10">
-                    <WinCard
-                      data={
-                        {
-                          account: { name: 'Your username?(Sample)' },
-                          stats: { all: { overall: { wins: 5 } } },
-                        } as StatsResponse['data']
-                      }
-                    />
-                  </div>
-                  <Gifs value={5} />
-                </>
-              )
+              <StatsEmpty />
             )}
           </>
         )}

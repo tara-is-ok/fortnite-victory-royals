@@ -8,12 +8,12 @@ import { useStats } from '@/hooks'
 import { ModeTabs } from './fragments/modeTabs'
 
 const Stats: FC = () => {
-  const { data, error, isLoading } = useStats()
+  const { error, isLoading } = useStats()
 
   return (
     <StatsLayout error={error} isLoading={isLoading}>
       <div className="mt-5">
-        <ModeTabs data={data} />
+        <ModeTabs />
       </div>
     </StatsLayout>
   )

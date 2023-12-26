@@ -1,3 +1,4 @@
+'use client'
 import {
   Tab,
   TabPanel,
@@ -7,21 +8,18 @@ import {
 } from '@material-tailwind/react'
 import { FC } from 'react'
 
-import { StatsResponse } from '@/types/api/stats'
-
-type Props = {
-  data?: StatsResponse['data']
-}
+import { Spinner, StatsEmpty } from '@/components'
+import { useStats } from '@/hooks'
+import { Duo, Solo, Squad } from '@/types/api/stats'
 
 const modes = [
   { label: 'Solo', value: 'solo' },
   { label: 'Duo', value: 'duo' },
   { label: 'Squad', value: 'squad' },
 ] as const
-export const ModeTabs: FC<Props> = ({ data }) => {
-  const solo = data?.stats.all.solo
-  const duo = data?.stats.all.duo
-  const squad = data?.stats.all.squad
+
+export const ModeTabs: FC = () => {
+  const { data, isLoading } = useStats()
   return (
     <Tabs value="solo">
       <TabsHeader
@@ -41,67 +39,65 @@ export const ModeTabs: FC<Props> = ({ data }) => {
         ))}
       </TabsHeader>
       <TabsBody placeholder="">
-        <TabPanel value="solo">
-          <div className="grid gap-y-2">
-            <p>{data?.account.name}</p>
-            {solo && (
-              <>
-                <p>{`Victory royals: ${solo.wins}`}</p>
-                <p>{`Win rate: ${solo.winRate}`}</p>
-                <p>{`Kills: ${solo.kills}`}</p>
-                <p>{`Kills per min : ${solo.killsPerMin}`}</p>
-                <p>{`Kills per match : ${solo.killsPerMatch}`}</p>
-                <p>{`Deaths: ${solo.deaths}`}</p>
-                <p>{`Matches: ${solo.matches}`}</p>
-                <p>{`Kills per Death${solo.kd}`}</p>
-                <p>{`Minutes played: ${solo.minutesPlayed}`}</p>
-                <p>{`Top 10: ${solo.top10}`}</p>
-                <p>{`Top 25: ${solo.top25}`}</p>
-              </>
-            )}
+        {isLoading ? (
+          <div className="flex justify-center items-center mt-40">
+            <Spinner />
           </div>
-        </TabPanel>
-        <TabPanel value="duo">
-          <div className="grid gap-y-2">
-            <p>{data?.account.name}</p>
-            {duo && (
+        ) : (
+          <>
+            {data ? (
               <>
-                <p>{`Victory royals: ${duo.wins}`}</p>
-                <p>{`Win rate: ${duo.winRate}`}</p>
-                <p>{`Kills: ${duo.kills}`}</p>
-                <p>{`Kills per min : ${duo.killsPerMin}`}</p>
-                <p>{`Kills per match : ${duo.killsPerMatch}`}</p>
-                <p>{`Deaths: ${duo.deaths}`}</p>
-                <p>{`Matches: ${duo.matches}`}</p>
-                <p>{`Kills per Death${duo.kd}`}</p>
-                <p>{`Minutes played: ${duo.minutesPlayed}`}</p>
-                <p>{`Top 10: ${duo.top5}`}</p>
-                <p>{`Top 25: ${duo.top12}`}</p>
+                <TabPanel value="solo" className="grid gap-y-2">
+                  {data.stats.all.solo && (
+                    <>
+                      <p className="font-bold text-lg">{data.account.name}</p>
+                      {Object.keys(data.stats.all.solo).map((key) => (
+                        <p key={key}>{`${insertSpace(key)}: ${
+                          data.stats.all.solo[key as keyof Solo]
+                        }`}</p>
+                      ))}
+                    </>
+                  )}
+                </TabPanel>
+                <TabPanel value="duo" className="grid gap-y-2">
+                  {data.stats.all.duo && (
+                    <>
+                      <p className="font-bold text-lg">{data.account.name}</p>
+                      {Object.keys(data.stats.all.duo).map((key) => (
+                        <p key={key}>{`${insertSpace(key)}: ${
+                          data.stats.all.duo[key as keyof Duo]
+                        }`}</p>
+                      ))}
+                    </>
+                  )}
+                </TabPanel>
+                <TabPanel value="squad" className="grid gap-y-2">
+                  {data.stats.all.squad && (
+                    <>
+                      <p className="font-bold text-lg">{data.account.name}</p>
+                      {Object.keys(data.stats.all.squad).map((key) => (
+                        <p key={key}>{`${insertSpace(key)}: ${
+                          data.stats.all.squad[key as keyof Squad]
+                        }`}</p>
+                      ))}
+                    </>
+                  )}
+                </TabPanel>
               </>
+            ) : (
+              <div className="h-screen">
+                <StatsEmpty />
+              </div>
             )}
-          </div>
-        </TabPanel>
-        <TabPanel value="squad">
-          <div className="grid gap-y-2">
-            <p>{data?.account.name}</p>
-            {squad && (
-              <>
-                <p>{`Victory royals: ${squad.wins}`}</p>
-                <p>{`Win rate: ${squad.winRate}`}</p>
-                <p>{`Kills: ${squad.kills}`}</p>
-                <p>{`Kills per min : ${squad.killsPerMin}`}</p>
-                <p>{`Kills per match : ${squad.killsPerMatch}`}</p>
-                <p>{`Deaths: ${squad.deaths}`}</p>
-                <p>{`Matches: ${squad.matches}`}</p>
-                <p>{`Kills per Death${squad.kd}`}</p>
-                <p>{`Minutes played: ${squad.minutesPlayed}`}</p>
-                <p>{`Top 10: ${squad.top3}`}</p>
-                <p>{`Top 25: ${squad.top6}`}</p>
-              </>
-            )}
-          </div>
-        </TabPanel>
+          </>
+        )}
       </TabsBody>
     </Tabs>
   )
 }
+
+const insertSpace = (value: string) =>
+  value
+    .replace(/([A-Z])/g, ' $1')
+    .trim()
+    .toLowerCase()
