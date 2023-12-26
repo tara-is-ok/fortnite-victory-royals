@@ -62,7 +62,10 @@ export const StatsLayout: FC<Props> = ({ children, error, isLoading }) => {
       >
         <div className="flex justify-between items-center mb-2">
           <div className="flex items-center gap-x-1">
-            <Typography placeholder="" className=" text-lg font-bold">
+            <Typography
+              placeholder=""
+              className=" text-lg font-bold text-gray-700"
+            >
               User
             </Typography>
             <UserCircleIcon className="w-6 h-6 text-gray-700" />
