@@ -1,3 +1,4 @@
+'use client'
 import useSWR from 'swr'
 
 import { StatsError, StatsResponse } from '@/types/api/stats'
