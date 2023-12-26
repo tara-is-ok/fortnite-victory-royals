@@ -12,7 +12,7 @@ const imageSize = isMobile
   ? { minW: 25, maxW: 40, minH: 50, maxH: 60 }
   : { minW: 50, maxW: 80, minH: 100, maxH: 120 }
 const offsetX = 90
-const offsetY = 60
+const offsetY = 70
 
 export const Gifs: FC<Props> = ({ value }) => {
   const winsArr = [...Array(value)].map(
