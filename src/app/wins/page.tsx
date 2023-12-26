@@ -12,26 +12,24 @@ const Wins: FC = () => {
 
   return (
     <StatsLayout error={error} isLoading={isLoading}>
-      <div className="h-full mt-5">
-        {isLoading ? (
-          <div className="flex justify-center items-center mt-40">
-            <Spinner />
-          </div>
-        ) : (
-          <>
-            {data ? (
-              <>
-                <div className="absolute m-auto w-10/12 sm:w-auto z-10">
-                  <WinCard data={data} />
-                </div>
-                <Gifs value={Number(data?.stats.all.overall.wins)} />
-              </>
-            ) : (
-              <StatsEmpty />
-            )}
-          </>
-        )}
-      </div>
+      {isLoading ? (
+        <div className="flex justify-center items-center mt-40">
+          <Spinner />
+        </div>
+      ) : (
+        <>
+          {data ? (
+            <>
+              <div className="absolute m-auto w-10/12 sm:w-auto z-10">
+                <WinCard data={data} />
+              </div>
+              <Gifs value={Number(data?.stats.all.overall.wins)} />
+            </>
+          ) : (
+            <StatsEmpty />
+          )}
+        </>
+      )}
     </StatsLayout>
   )
 }

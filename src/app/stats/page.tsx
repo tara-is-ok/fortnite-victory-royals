@@ -12,9 +12,7 @@ const Stats: FC = () => {
 
   return (
     <StatsLayout error={error} isLoading={isLoading}>
-      <div className="mt-5">
-        <ModeTabs />
-      </div>
+      <ModeTabs />
     </StatsLayout>
   )
 }
