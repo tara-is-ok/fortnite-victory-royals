@@ -1,8 +1,10 @@
 'use client'
 import { Dialog } from '@headlessui/react'
 import { XMarkIcon } from '@heroicons/react/24/outline'
+import Link from 'next/link'
 import { FC } from 'react'
 
+import { useStatsParams } from '@/hooks'
 import { navigations } from '@/utils/navigation'
 
 type Props = {
@@ -11,6 +13,7 @@ type Props = {
 }
 
 export const NavDialog: FC<Props> = ({ open, handleClose }) => {
+  const { params } = useStatsParams()
   return (
     <Dialog as="div" className="lg:hidden" open={open} onClose={handleClose}>
       <div className="fixed inset-0 z-50" />
@@ -34,13 +37,16 @@ export const NavDialog: FC<Props> = ({ open, handleClose }) => {
           <div className="-my-6 divide-y divide-gray-500/10">
             <div className="space-y-2 py-6">
               {navigations.map((nav) => (
-                <a
+                <Link
                   key={nav.name}
-                  href={nav.href}
+                  href={{
+                    pathname: nav.href,
+                    query: params.name ? params : undefined,
+                  }}
                   className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
                 >
                   {nav.name}
-                </a>
+                </Link>
               ))}
             </div>
           </div>

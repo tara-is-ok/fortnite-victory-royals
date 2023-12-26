@@ -1,11 +1,13 @@
 import Link from 'next/link'
 import { FC } from 'react'
 
-import { StatsParams } from '@/hooks'
+import { useStatsParams } from '@/hooks'
 import { StatsResponse } from '@/types/api/stats'
 
-type Props = { data: StatsResponse['data']; params?: StatsParams }
-export const WinCard: FC<Props> = ({ data, params }) => {
+type Props = { data: StatsResponse['data'] }
+
+export const WinCard: FC<Props> = ({ data }) => {
+  const { params } = useStatsParams()
   return (
     <>
       <div className="max-w-sm w-full">

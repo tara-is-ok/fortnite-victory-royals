@@ -18,10 +18,12 @@ const RootLayout = ({ children }: { children: ReactNode }) => {
   return (
     <html lang="en">
       <body>
-        <Header />
         <div className={`${inter.className} h-screen`}>
           <Background>
-            <Providers>{children}</Providers>
+            <Providers>
+              <Header />
+              {children}
+            </Providers>
           </Background>
         </div>
       </body>

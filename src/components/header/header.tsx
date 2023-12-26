@@ -1,12 +1,16 @@
 'use client'
 import { Bars3Icon } from '@heroicons/react/24/outline'
+import Link from 'next/link'
 import { useState } from 'react'
 
+import { useStatsParams } from '@/hooks'
 import { navigations } from '@/utils/navigation'
 
 import { NavDialog } from './fragments/dialog'
 
 export const Header = () => {
+  const { params } = useStatsParams()
+
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   return (
     <header className="absolute inset-x-0 top-0 z-50 shadow-md">
@@ -35,13 +39,16 @@ export const Header = () => {
         )}
         <div className="hidden lg:flex flex-1 lg:gap-x-12">
           {navigations.map((nav) => (
-            <a
+            <Link
               key={nav.name}
-              href={nav.href}
+              href={{
+                pathname: nav.href,
+                query: params?.name ? params : undefined,
+              }}
               className="text-sm font-semibold leading-6 text-gray-900"
             >
               {nav.name}
-            </a>
+            </Link>
           ))}
         </div>
       </nav>
