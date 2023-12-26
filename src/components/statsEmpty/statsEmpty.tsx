@@ -10,7 +10,7 @@ export const StatsEmpty: FC = () => (
       <div className="flex items-center gap-x-1">
         <p>Please enter the information from </p>
         <UserCircleIcon className="w-7 h-7" />
-        <p>below !</p>
+        <p>below!</p>
       </div>
     </div>
     <Gifs value={5} />
