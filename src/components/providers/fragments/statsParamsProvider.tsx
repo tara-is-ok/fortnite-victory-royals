@@ -5,7 +5,7 @@ import { purgeFalsyValues } from '@/utils/object'
 
 import { StatsParams } from '.'
 
-type Action = { type: 'update'; payload: StatsParams } // ユーザー追加
+type Action = { type: 'update'; payload: StatsParams }
 
 export const statsParamsReducer = (
   params: StatsParams,
