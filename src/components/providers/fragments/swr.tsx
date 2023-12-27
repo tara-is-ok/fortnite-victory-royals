@@ -27,6 +27,7 @@ export const Swr: FC<Props> = ({ children }) => {
           }),
         //todo: manage cache
         // provider: () => new Map()
+        shouldRetryOnError: false,
       }}
     >
       {children}

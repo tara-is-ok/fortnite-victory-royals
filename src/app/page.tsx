@@ -1,7 +1,6 @@
 'use client'
 
 import { ArrowRightIcon } from '@heroicons/react/20/solid'
-import { Button } from '@material-tailwind/react'
 import { FC } from 'react'
 
 const Home: FC = () => {
@@ -14,13 +13,10 @@ const Home: FC = () => {
         🪼😶‍🌫️💦💦🧩💦💦🌱💧
       </p>
       <a href="/wins">
-        <Button
-          className="bg-indigo-600 flex items-center hover:bg-indigo-500"
-          placeholder=""
-        >
-          try victory royal times
+        <button className="bg-indigo-600 flex items-center hover:bg-indigo-500 rounded-xl w-fit py-2 px-4 text-white text-sm font-bold">
+          Try victory royal times
           <ArrowRightIcon className="w-5 h-5 ml-1" />
-        </Button>
+        </button>
       </a>
     </div>
   )

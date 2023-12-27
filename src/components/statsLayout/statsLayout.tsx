@@ -40,7 +40,7 @@ export const StatsLayout: FC<Props> = ({ children, error, isLoading }) => {
       <div className="h-screen">
         <div className="relative isolate px-6 pt-16 lg:px-8 h-full">
           {error && (
-            <div className="py-2">
+            <div className="pt-2">
               <ErrorToast error={error} />
             </div>
           )}

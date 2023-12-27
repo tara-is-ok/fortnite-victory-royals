@@ -10,7 +10,7 @@ type Props = {
 export const ErrorToast: FC<Props> = ({ error }) => {
   return (
     <div className="flex w-fit rounded-lg">
-      <div className="flex items-start">
+      <div className="flex items-center">
         <div className="shrink-0 items-center justify-center rounded-lg  text-red-500 dark:bg-red-800 dark:text-red-200">
           <ExclamationCircleIcon className="h-5 w-5" />
         </div>
