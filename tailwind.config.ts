@@ -8,6 +8,9 @@ const config = withMT({
   ],
   theme: {
     extend: {
+      fontFamily: {
+        body: ['Futura'],
+      },
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
         'gradient-conic':

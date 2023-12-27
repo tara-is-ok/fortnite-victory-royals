@@ -14,7 +14,7 @@ export const ErrorToast: FC<Props> = ({ error }) => {
         <div className="shrink-0 items-center justify-center rounded-lg  text-red-500 dark:bg-red-800 dark:text-red-200">
           <ExclamationCircleIcon className="h-5 w-5" />
         </div>
-        <div className="ml-2 text-sm font-normal text-red-400">
+        <div className="ml-2 text-sm  text-red-400">
           {toErrorMessage(error)}
         </div>
       </div>
