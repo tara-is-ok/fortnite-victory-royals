@@ -10,6 +10,7 @@ import { FC, useState } from 'react'
 import { ArrowVerticalIcon } from '@/components'
 import { useStatsParams } from '@/hooks'
 import { StatsResponse } from '@/types/api/stats'
+import { hasUsername } from '@/utils/object'
 
 type Props = { data: StatsResponse['data'] }
 
@@ -51,7 +52,7 @@ export const WinCard: FC<Props> = ({ data }) => {
         <Link
           href={{
             pathname: '/stats',
-            query: params?.name ? params : undefined,
+            query: hasUsername(params) ? params : undefined,
           }}
         >
           <button className="font-bold bg-indigo-600 rounded-3xl w-fit py-1 px-3 text-white text-sm">

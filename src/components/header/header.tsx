@@ -5,6 +5,7 @@ import { useState } from 'react'
 
 import { useStatsParams } from '@/hooks'
 import { navigations } from '@/utils/navigation'
+import { hasUsername } from '@/utils/object'
 
 import { NavDialog } from './fragments/dialog'
 
@@ -42,7 +43,7 @@ export const Header = () => {
               key={nav.name}
               href={{
                 pathname: nav.href,
-                query: params?.name ? params : undefined,
+                query: hasUsername(params) ? params : undefined,
               }}
               className="text-sm font-semibold leading-6 text-gray-900"
             >

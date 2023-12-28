@@ -3,6 +3,7 @@ import { useSearchParams } from 'next/navigation'
 import { createContext, FC, ReactNode, useReducer } from 'react'
 
 import { StatsParams } from '@/types/stats'
+import { purgeFalsyValues } from '@/utils/object'
 
 import { StatsParamsDispatchContext, statsParamsReducer } from '.'
 
@@ -14,20 +15,15 @@ type Props = {
 }
 export const StatsParamsProvider: FC<Props> = ({ children }) => {
   const searchParams = useSearchParams()
-  const name = (searchParams.get('name') ?? undefined) as StatsParams['name']
-  const accountType = (searchParams.get('accountType') ??
-    undefined) as StatsParams['accountType']
-  const timeWindow = (searchParams.get('timeWindow') ??
-    undefined) as StatsParams['timeWindow']
-  const defaultValues = { name, accountType, timeWindow }
-  const [statsParams, statsParamsDispatch] = useReducer(
-    statsParamsReducer,
-    defaultValues,
-  )
+  const name = searchParams.get('name')
+  const accountType = searchParams.get('accountType')
+  const timeWindow = searchParams.get('timeWindow')
+  const defaultValues = purgeFalsyValues({ name, accountType, timeWindow })
+  const [params, paramsDispatch] = useReducer(statsParamsReducer, defaultValues)
 
   return (
-    <StatsParamsContext.Provider value={statsParams}>
-      <StatsParamsDispatchContext.Provider value={statsParamsDispatch}>
+    <StatsParamsContext.Provider value={params}>
+      <StatsParamsDispatchContext.Provider value={paramsDispatch}>
         {children}
       </StatsParamsDispatchContext.Provider>
     </StatsParamsContext.Provider>

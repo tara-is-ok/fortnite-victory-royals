@@ -3,14 +3,14 @@ import useSWR from 'swr'
 
 import { StatsError, StatsResponse } from '@/types/api/stats'
 import { baseUrl } from '@/utils/const'
+import { hasUsername } from '@/utils/object'
 
 import { useStatsParams } from '.'
 
 export const useStats = () => {
   const { params } = useStatsParams()
-  const queryParams = params?.name
-    ? new URLSearchParams(params).toString()
-    : undefined
+  const queryParams =
+    hasUsername(params) && new URLSearchParams(params).toString()
   const { data, error, isLoading } = useSWR<StatsResponse, StatsError>(
     queryParams ? `${baseUrl}/api/stats?${queryParams}` : null,
   )
