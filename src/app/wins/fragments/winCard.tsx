@@ -31,17 +31,21 @@ export const WinCard: FC<Props> = ({ data }) => {
         {data.account.name}
       </AccordionHeader>
       <AccordionBody className="flex gap-x-1 justify-between items-center p-0 font-body pb-2">
-        <Avatar
-          placeholder=""
-          src="/images/johnsy.webp"
-          alt="avatar"
-          className="border border-gray-500 bg-white"
-        />
-        <div className="text-gray-700 font-bold">
-          <p>victory royal</p>
-          <div className="flex items-baseline">
-            <p className="text-3xl text-black">{data.stats.all.overall.wins}</p>
-            <p className="ml-1">times🧤</p>
+        <div className="flex items-center gap-x-1">
+          <Avatar
+            placeholder=""
+            src="/images/johnsy.webp"
+            alt="avatar"
+            className="border border-gray-500 bg-white"
+          />
+          <div className="text-gray-700 font-bold">
+            <p>victory royal</p>
+            <div className="flex items-baseline">
+              <p className="text-3xl text-black">
+                {data.stats.all.overall.wins}
+              </p>
+              <p className="ml-1">times🧤</p>
+            </div>
           </div>
         </div>
         <Link
