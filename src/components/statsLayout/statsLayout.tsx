@@ -23,7 +23,7 @@ type Props = {
 export const StatsLayout: FC<Props> = ({ children, error, isLoading }) => {
   const router = useRouter()
   const pathname = usePathname()
-  const { params, dispatch } = useStatsParams()
+  const { params, update } = useStatsParams()
   const [open, setOpen] = useState(params.name ? false : true)
   const openDrawer = () => setOpen(true)
   const closeDrawer = () => setOpen(false)
@@ -31,7 +31,7 @@ export const StatsLayout: FC<Props> = ({ children, error, isLoading }) => {
   const onSubmit = async (values: StatsParams) => {
     const queryParams = paramsSerializer(values)
     router.push(`${pathname}?${queryParams}`)
-    dispatch({ type: 'update', payload: values })
+    update(values)
     closeDrawer()
   }
 
