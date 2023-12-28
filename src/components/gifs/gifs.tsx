@@ -27,15 +27,16 @@ export const Gifs: FC<Props> = ({ value }) => {
         return (
           <div
             className="col-span-1 sm:col-span-1 md:col-span-1"
-            style={{ position: 'absolute', top: `${y}%`, left: `${x}%` }}
+            style={{
+              position: 'absolute',
+              top: `${y}%`,
+              left: `${x}%`,
+              height: getRandomNumber(maxH, minH),
+              width: getRandomNumber(maxW, minW),
+            }}
             key={i}
           >
-            <Image
-              src={src}
-              alt="my gif"
-              height={getRandomNumber(maxH, minH)}
-              width={getRandomNumber(maxW, minW)}
-            />
+            <Image src={src} alt="my gif" priority />
           </div>
         )
       })}
