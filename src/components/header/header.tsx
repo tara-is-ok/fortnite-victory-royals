@@ -21,7 +21,6 @@ export const Header = () => {
         <div className="flex lg:flex-1">
           <a href="/" className="-m-1.5 p-1.5">
             <span className="sr-only">Home</span>
-            {/* eslint-disable-next-line @next/next/no-img-element -- コメントアウトサンプル */}
             🧢
           </a>
         </div>

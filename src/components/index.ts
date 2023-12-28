@@ -1,3 +1,4 @@
+export * from './arrowVerticalIcon/arrowVerticalIcon'
 export * from './background/background'
 export * from './gifs/gifs'
 export * from './header/header'

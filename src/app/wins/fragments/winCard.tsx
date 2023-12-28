@@ -7,6 +7,7 @@ import {
 import Link from 'next/link'
 import { FC, useState } from 'react'
 
+import { ArrowVerticalIcon } from '@/components'
 import { useStatsParams } from '@/hooks'
 import { StatsResponse } from '@/types/api/stats'
 
@@ -18,7 +19,7 @@ export const WinCard: FC<Props> = ({ data }) => {
   return (
     <Accordion
       open={open}
-      icon={<Icon open={open} />}
+      icon={<ArrowVerticalIcon open={open} />}
       className="border border-indigo-600 border-opacity-50 shadow-lg  bg-white bg-opacity-90 rounded p-4 flex flex-col pb-1"
       placeholder=""
     >
@@ -40,7 +41,7 @@ export const WinCard: FC<Props> = ({ data }) => {
           <p>victory royal</p>
           <div className="flex items-baseline">
             <p className="text-3xl text-black">{data.stats.all.overall.wins}</p>
-            <p className="ml-1">times 💫</p>
+            <p className="ml-1">times🧤</p>
           </div>
         </div>
         <Link
@@ -55,25 +56,5 @@ export const WinCard: FC<Props> = ({ data }) => {
         </Link>
       </AccordionBody>
     </Accordion>
-  )
-}
-
-// eslint-disable-next-line @typescript-eslint/naming-convention -- component
-const Icon: FC<{ open: boolean }> = ({ open }) => {
-  return (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      fill="none"
-      viewBox="0 0 24 24"
-      strokeWidth={2}
-      stroke="currentColor"
-      className={`${open ? 'rotate-180' : ''} h-5 w-5 transition-transform`}
-    >
-      <path
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        d="M19.5 8.25l-7.5 7.5-7.5-7.5"
-      />
-    </svg>
   )
 }

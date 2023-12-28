@@ -20,7 +20,7 @@ const Wins: FC = () => {
         <>
           {data ? (
             <>
-              <div className="absolute m-auto z-10">
+              <div className="absolute z-10 sm:left-1/2 sm:transform sm:-translate-x-1/2 sm:w-11/12 w-fit">
                 <WinCard data={data} />
               </div>
               <Gifs value={Number(data?.stats.all.overall.wins)} />
