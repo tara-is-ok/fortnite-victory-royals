@@ -11,8 +11,8 @@ type Props = {
 const imageSize = isMobile
   ? { minW: 25, maxW: 40, minH: 50, maxH: 60 }
   : { minW: 50, maxW: 80, minH: 100, maxH: 120 }
-const offsetX = 85
-const offsetY = 80
+const offsetX = 84
+const offsetY = 73
 
 export const Gifs: FC<Props> = ({ value }) => {
   const winsArr = useMemo(
