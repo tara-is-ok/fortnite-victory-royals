@@ -14,7 +14,7 @@ export const metadata: Metadata = {
 const RootLayout = ({ children }: { children: ReactNode }) => {
   return (
     <html lang="en">
-      <body className="font-body">
+      <body className="font-body h-[100dvh]">
         <Background>
           <Providers>
             <Header />

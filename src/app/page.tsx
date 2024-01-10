@@ -5,7 +5,7 @@ import { FC } from 'react'
 
 const Home: FC = () => {
   return (
-    <div className="h-screen flex flex-col gap-y-5 items-center pt-56">
+    <div className="h-full flex flex-col gap-y-5 items-center pt-56">
       <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">
         🧊Fortnite Stats🫧
       </h1>

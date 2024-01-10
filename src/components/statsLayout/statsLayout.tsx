@@ -37,7 +37,7 @@ export const StatsLayout: FC<Props> = ({ children, error, isLoading }) => {
 
   return (
     <>
-      <div className="h-screen">
+      <div className="h-full">
         <div className="relative isolate px-6 pt-16 lg:px-8 h-full">
           {error && (
             <div className="pt-2">
@@ -64,7 +64,7 @@ export const StatsLayout: FC<Props> = ({ children, error, isLoading }) => {
           <div className="flex items-center gap-x-1">
             <Typography
               placeholder=""
-              className=" text-lg font-bold text-gray-700"
+              className="text-lg font-bold text-gray-700"
             >
               User
             </Typography>

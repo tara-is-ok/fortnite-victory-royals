@@ -1,5 +1,5 @@
 import Image from 'next/image'
-import { FC } from 'react'
+import { FC, useMemo } from 'react'
 import { isMobile } from 'react-device-detect'
 
 import { gifs } from '@/utils/const'
@@ -11,12 +11,13 @@ type Props = {
 const imageSize = isMobile
   ? { minW: 25, maxW: 40, minH: 50, maxH: 60 }
   : { minW: 50, maxW: 80, minH: 100, maxH: 120 }
-const offsetX = 90
-const offsetY = 70
+const offsetX = 85
+const offsetY = 80
 
 export const Gifs: FC<Props> = ({ value }) => {
-  const winsArr = [...Array(value)].map(
-    () => gifs[getRandomNumber(gifs.length - 1)],
+  const winsArr = useMemo(
+    () => [...Array(value)].map(() => gifs[getRandomNumber(gifs.length - 1)]),
+    [value],
   )
 
   return (
