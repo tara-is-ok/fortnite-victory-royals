@@ -3,7 +3,7 @@ import { useContext } from 'react'
 import {
   StatsParamsContext,
   StatsParamsDispatchContext,
-} from '@/components/providers/fragments'
+} from '@/providers/fragments'
 import { StatsParams } from '@/types/stats'
 
 export const useStatsParams = () => {

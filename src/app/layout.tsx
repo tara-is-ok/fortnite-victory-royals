@@ -4,7 +4,7 @@ import type { Metadata } from 'next'
 import { ReactNode } from 'react'
 
 import { Background, Header } from '@/components'
-import { Providers } from '@/components/providers/providers'
+import { Providers } from '@/providers/providers'
 
 export const metadata: Metadata = {
   title: 'Fortnite Stats 🧤',
