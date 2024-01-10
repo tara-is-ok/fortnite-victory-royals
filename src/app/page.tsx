@@ -1,5 +1,3 @@
-'use client'
-
 import { ArrowRightIcon } from '@heroicons/react/20/solid'
 import { FC } from 'react'
 

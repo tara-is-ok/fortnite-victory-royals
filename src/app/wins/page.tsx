@@ -1,5 +1,4 @@
 'use client'
-
 import { FC } from 'react'
 
 import { Gifs, Spinner, StatsEmpty, StatsLayout } from '@/components'

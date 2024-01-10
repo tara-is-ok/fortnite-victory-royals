@@ -1,3 +1,4 @@
+'use client'
 import axios from 'axios'
 import { BAD_REQUEST, FORBIDDEN, NOT_FOUND, OK } from 'http-status'
 import { FC, ReactNode } from 'react'
