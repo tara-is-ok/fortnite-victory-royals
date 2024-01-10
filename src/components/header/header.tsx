@@ -19,7 +19,7 @@ export const Header = () => {
         className="flex items-center justify-between px-5 py-3 lg:px-8"
         aria-label="Global"
       >
-        <div className="flex lg:flex-1">
+        <div className="flex">
           <a href="/" className="-m-1.5 p-1.5">
             <span className="sr-only">Home</span>
             🧢
@@ -37,7 +37,7 @@ export const Header = () => {
             </button>
           </div>
         )}
-        <div className="hidden lg:flex flex-1 lg:gap-x-12">
+        <div className="hidden lg:flex lg:gap-x-12">
           {navigations.map((nav) => (
             <Link
               key={nav.name}
@@ -51,6 +51,7 @@ export const Header = () => {
             </Link>
           ))}
         </div>
+        <div className="hidden lg:flex" />
       </nav>
       <NavDialog
         open={mobileMenuOpen}
